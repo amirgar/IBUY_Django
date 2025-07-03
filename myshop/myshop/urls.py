@@ -7,9 +7,10 @@ from django.urls import re_path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    re_path(r'^orders/', include(('orders.urls', 'orders'), namespace='orders')),
+    re_path(r'^cart/', include(('cart.urls', "cart"), namespace='cart')),
     re_path(r'^', include(('shop.urls', 'shop'), namespace='shop')),
 ]
-
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

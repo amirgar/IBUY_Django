@@ -38,7 +38,7 @@ class Migration(migrations.Migration):
                 ('available', models.BooleanField(default=True)),
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('updated', models.DateTimeField(auto_now=True)),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, related_name='products', to='shop.category')),
+                ('category', models.ForeignKey(on_delete=django.db.models.deletion.SET_NULL, related_name='products', to='shop.category')),
             ],
             options={
                 'ordering': ('name',),

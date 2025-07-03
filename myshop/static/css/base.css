@@ -349,3 +349,23 @@
     top: 10%;
     left: 10%;
 }
+
+.navigation-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  fill: #000000;
+}
+
+.basket { 
+    position: absolute; 
+    left: "9%"; 
+    top: "34%"
+}
+
+.basket:hover { 
+  transform: scale(1.1);
+}

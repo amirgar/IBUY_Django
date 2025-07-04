@@ -29,9 +29,9 @@
     <br>
     <br>
     <br>
-    <br>
     <center><div class="titillium-web-bold" style=" font-size: 40px; font-weight: 900px;">{% if category %}{{ category.name }}{% else %}Доступные товары{% endif %}</div></center>
-    <div id="main" class="product-list" style="position: absolute; left: 38%; top: 33%; z-index: -10000;">  
+    <br>
+    <center><div id="main" class="product-list" style="margin-left: auto; margin-right: auto; z-index: -10000;">  
         {% for product in products %}
             <div class="item">
                 <a href="{{ product.get_absolute_url }}">
@@ -43,5 +43,5 @@
             </div>
             <br>
         {% endfor %}
-    </div>
+    </div></center>
 {% endblock %}

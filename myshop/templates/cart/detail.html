@@ -4,30 +4,46 @@
     Your shopping cart
 {% endblock %}
 {% block content %}
-    <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> --> 
-    <h1>Your shopping cart</h1>
+    <button type="submit" class="btn-new" style="z-index: -100000; position: relative; top: 190px; left: 40%;"><a href="{% url "orders:order_create" %}" style="text-decoration: none; color: black;">Оформить</a></button>
     <table class="cart">
         <thead>
         <tr>
-            <th>Image</th>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Remove</th>
-            <th>Unit price</th>
-            <th>Price</th>
+            <th class="titillium-web-black">Фото</th>
+            <th class="titillium-web-black">Товар</th>
+            <th class="titillium-web-black">Количество</th>
+            <th class="titillium-web-black">Убрать</th>
+            <th class="titillium-web-black">Цена за 1 шт.</th>
+            <th class="titillium-web-black">Итого</th>
         </tr>
         </thead>
-        <tbody>
+        {% for item in cart %}
+            {% with product=item.product %}
+                <tr>
+                    <td>
+                        <a href="{{ product.get_absolute_url }}">
+                            <img src="
+                                {% if product.image %}
+                                    {{ product.image.url }}
+                                {% else %}
+                                    {% static "img/no_image.png" %}
+                                {% endif %}" width="300" height="400">
+                        </a>
+                    </td>
+                    <td class="titillium-web-black">{{ product.name }}</td>
+                    <td class="titillium-web-black">{{ item.quantity }}</td>
+                    <td class="titillium-web-black"><a href="{% url "cart:cart_remove" product.id%}">Remove</a></td>
+                    <td class="titillium-web-black">${{ item.price }}</td>
+                    <td class="titillium-web-black">${{ item.total_price }}</td>
+                </tr>
+            {% endwith %}
+        {% endfor %}
         <tr class="total">
-            <td>Total</td>
+            <td class="titillium-web-bold" style="font-size: 20px;">В сумме к оплате: </td>
             <td colspan="4"></td>
-            <td class="num">${{ cart.get_total_price }}</td>
+            <td class="titillium-web-bold" style="font-size: 20px;">{{ cart.get_total_price }} ₽</td>
         </tr>
+        <p class="text-right">
+        </p>
         </tbody>
     </table>
-    <p class="text-right">
-        <a href="{% url "shop:product_list" %}" class="button light" style="position: fixed; top: 500px;">Continue shopping</a>
-        <!-- <a href="{% url "orders:order_create" %}" class="button" style="position: fixed; top: 550px;">Checkout</a> -->
-    </p>
 {% endblock %}

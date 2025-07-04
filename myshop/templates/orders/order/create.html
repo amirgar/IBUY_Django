@@ -5,20 +5,23 @@
 {% block content %}
     <h1>Checkout</h1>
     <div class="order-info">
-        <h3>Your order</h3>
+        <h1 class="titillium-web-black">Ваш заказ</h1>
         <ul>
             {% for item in cart %}
                 <li>
-                    {{ item.quantity }}x {{ item.product.name }}
-                    <span>${{ item.total_price }}</span>
+                    <div class="titillium-web-regular">{{ item.quantity }}x {{ item.product.name }}</div>
+                    <span class="titillium-web-regular">{{ item.total_price }}₽</span>
                 </li>
             {% endfor %}
         </ul>
-        <p>Total: ${{ cart.get_total_price }}</p>
+        <p class="titillium-web-black">В сумме: {{ cart.get_total_price }}₽</p> 
+        <h1 class="titillium-web-black" >Введите данные:</h1>
     </div>
-    <form action="." method="post" class="order-form">
-        {{ form.as_p }}
-        <p><input type="submit" value="Place order"></p>
-        {% csrf_token %}
-    </form>
+    <div>
+        <form action="." method="post" class="order-form">
+            {{ form.as_p }}
+            <p><input type="submit" value="ЗАКАЗАТЬ"></p>
+            {% csrf_token %}
+        </form>
+    </div>
 {% endblock %}

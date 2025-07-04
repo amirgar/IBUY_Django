@@ -49,9 +49,10 @@
                     <div class="titillium-web-regular" style="font-style: bold; font-size: 30px;text-decoration: none;"><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></div>
                     <p class="titillium-web-black" style="font-size: 30px;">{{ product.price }} ₽</p>
                     <form action="{% url "cart:cart_add" product.id %}" method="post">
+                        <!-- {{ cart_product_form }} -->
                         {% csrf_token %}
+                        <br>
                         <button type="submit" class="btn-new">В корзину</button>
-                        <!-- <input type="submit" value="Добавить в корзину"> -->
                     </form>
                 </div>
                 <img width=500px; src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" style="transition: transform 0.3s ease; position: absolute; left: 10%; top: 260px;" onclick="enlargeImage(this)">

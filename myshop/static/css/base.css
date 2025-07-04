@@ -245,7 +245,7 @@
 
 .titillium-web-black {
     font-family: "Titillium Web", sans-serif;
-    font-weight: 900;
+    /* font-weight: 900; */
     font-style: normal;
 }
 
@@ -346,8 +346,8 @@
 
 .cart { 
     position: absolute;
-    top: 10%;
-    left: 10%;
+    top: 100px;
+    left: 20px;
 }
 
 .navigation-icon {
@@ -369,3 +369,82 @@
 .basket:hover { 
   transform: scale(1.1);
 }
+
+.product_detail { 
+    position: absolute; 
+    top: 40%; 
+    left: 50%;
+}
+
+form{
+  display: block;
+  width: 100%;
+}
+
+.btn-new {
+    text-align: center;
+    transition: 0.5s;
+    width: 200px; 
+    height: 80px;
+    background-size: 200% auto;
+    color: black;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    font-size: 30px;
+    background-image: linear-gradient(to right, #f2f5f4 0%, #d7f7ee 51%, #d2d4d3 100%);
+}
+
+.btn-new:hover {
+     background-position: right center;
+}
+
+ #carousel {
+      position: relative;
+      height: 326px;
+      width: 400px;
+      overflow: hidden;
+    }
+    #carousel *{
+      box-sizing: border-box ;
+      margin: 0;
+      padding: 0;
+    }
+    #carousel li {
+      position: absolute;
+      left: 0;
+      list-style-type: none;
+    }
+    #carousel .next,
+    #carousel .previous{
+      display: block;
+      position: absolute;
+      top: 0;
+      color: transparent;
+      /* border: 1px solid #fff; */
+      width: 100px;
+      height: 100%;
+      line-height: 326px;
+      text-align: center;
+    }
+    #carousel .next{
+      right: 0
+    }
+    #carousel .next span,
+    #carousel .previous span{
+      border-top: 5px solid #fff;
+      border-left: 5px solid #fff;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 40%;
+      transform: rotate(-45deg)
+    }
+    #carousel .next span{
+      transform: rotate(135deg);
+      left: 20px
+    }
+    #carousel .next:hover,
+    #carousel .previous:hover{
+      background: rgba(0,0,0,.2);
+    }

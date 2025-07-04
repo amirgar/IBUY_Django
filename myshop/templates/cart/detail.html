@@ -5,7 +5,7 @@
 {% endblock %}
 {% block content %}
     <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> --> 
     <h1>Your shopping cart</h1>
     <table class="cart">
         <thead>
@@ -19,27 +19,6 @@
         </tr>
         </thead>
         <tbody>
-        {% for item in cart %}
-            {% with product=item.product %}
-                <tr>
-                    <td>
-                        <a href="{{ product.get_absolute_url }}">
-                            <img src="
-                                {% if product.image %}
-                                    {{ product.image.url }}
-                                {% else %}
-                                    {% static "img/no_image.png" %}
-                                {% endif %}">
-                        </a>
-                    </td>
-                    <td>{{ product.name }}</td>
-                    <td>{{ item.quantity }}</td>
-                    <td><a href="{% url "cart:cart_remove" product.id%}">Remove</a></td>
-                    <td class="num">${{ item.price }}</td>
-                    <td class="num">${{ item.total_price }}</td>
-                </tr>
-            {% endwith %}
-        {% endfor %}
         <tr class="total">
             <td>Total</td>
             <td colspan="4"></td>
@@ -49,6 +28,6 @@
     </table>
     <p class="text-right">
         <a href="{% url "shop:product_list" %}" class="button light" style="position: fixed; top: 500px;">Continue shopping</a>
-        <a href="{% url "orders:order_create" %}" class="button" style="position: fixed; top: 550px;">Checkout</a>
+        <!-- <a href="{% url "orders:order_create" %}" class="button" style="position: fixed; top: 550px;">Checkout</a> -->
     </p>
 {% endblock %}

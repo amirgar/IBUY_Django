@@ -1,4 +1,4 @@
-
+{% extends "shop/base.html" %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -16,49 +16,57 @@
         img.style.transform = (img.style.transform === 'scale(1.4)') ? 'scale(1)' : 'scale(1.4)';
         }
     </script>
+    <style>
+        .btn-add-to-cart {
+        background-color: #ffffff; /* Белый фон */
+        border: 2px solid #000000; /* Черная граница */
+        color: #000000; /* Черный текст */
+        padding: 16px 32px;
+        font-size: 20px;
+        font-weight: 600;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .btn-add-to-cart:hover {
+            background-color: #f0f0f0; /* Светло-серый при наведении */
+            border-color: #333333; /* Темнее черной границы */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+        }
+    </style>
 </head>
-<header>
-    <nav style="position: fixed; top: 0; width: 100%; z-index: 10000;">
-        <input type="checkbox" id="side-checkbox" />
-        <div class="side-panel">
-            <a href="https://t.me/IBUYrussia" target="_blank" title="Написать в Telegram" rel="noopener noreferrer"><div class="telegram-button"><i class="fa fa-telegram"></i></div></a>
-        </div>
-        <div class="navbar">
-            {% with total_items=cart|length %}
-                <a href="{% url 'cart:cart_detail' %}">
-                    <img src="{% static 'img/basket.svg' %}" class="basket" height="50px" width="100px" style="position: absolute; top: 34%; left: 9%;" />
-                </a>
-            {% endwith %}
-            <center> 
-                <img src="{% static 'img/logo.png' %}" width="190" height="190">
-            </center> 
-            <div class="search-box">
-                    <input type="text" name="" class="search-txt" placeholder="Найти товар"/>
-                    <a class="search-btn" href="#">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                    </a>
-                </div>
-        </div>
-</header>
 <body>
     <div>
         {% block content %}
             <div>
-                <div style="position: absolute; left: 65%; top: 405px;">
-                    <div class="titillium-web-black" style="font-size: 40px;">{{ product.name }}</div>
-                    <div class="titillium-web-regular" style="font-style: bold; font-size: 30px;text-decoration: none;"><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></div>
-                    <p class="titillium-web-black" style="font-size: 30px;">{{ product.price }} ₽</p>
+                <div style="position: absolute; left: 65%; top: 405px; z-index: -100;">
+                    <div style="font-size: 40px; font-family: 'Tilda Sans', sans-serif;">{{ product.name }}</div>
+                    <div style="text-decoration: none; font-style: bold; font-size: 30px; font-family: 'Tilda Sans', sans-serif;"><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></div>
+                    <p class="titillium-web-black" style="text-decoration: none; font-style: bold; font-size: 30px; font-family: 'Tilda Sans', sans-serif;">{{ product.price }} ₽</p>
                     <form action="{% url "cart:cart_add" product.id %}" method="post">
                         <!-- {{ cart_product_form }} -->
                         {% csrf_token %}
-                        <br>
-                        <button type="submit" class="btn-new">В корзину</button>
+                        <button type="submit" class="btn-add-to-cart">В корзину</button>
                     </form>
                 </div>
-                <img width=500px; src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" style="transition: transform 0.3s ease; position: absolute; left: 10%; top: 260px;" onclick="enlargeImage(this)">
+                <img width="500"
+                    src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}"
+                    style="transition: transform 0.3s ease; border-radius: 20px; position: absolute; left: 10%; top: 260px; z-index: -100;" 
+                    onclick="enlargeImage(this)">
             </div>
-            <div class="titillium-web-bold" style="position: absolute; top: 1000px; left: 45.1%; font-size: 40px;">Описание</div>
-            <div class="titillium-web-black" style="position: absolute; top: 1050px; left: 3.1%;; font-size: 40px;">{{ product.description|linebreaks }}</div>
+            <div style="
+    text-decoration: none; 
+    font-size: 30px; 
+    font-family: 'Tilda Sans', sans-serif; 
+    position: absolute; 
+    top: 950px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 80%; 
+    text-align: center;"> {{ product.description|linebreaks }}</div>
         {% endblock %}
     </div>
 </body>

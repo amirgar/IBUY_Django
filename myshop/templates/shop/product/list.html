@@ -24,24 +24,55 @@
     <br>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <center><div class="titillium-web-bold" style=" font-size: 40px; font-weight: 900px;">{% if category %}{{ category.name }}{% else %}Доступные товары{% endif %}</div></center>
-    <br>
+    <div class="centered-category-block" style="z-index: -1000;">
+        <div class="category-links">
+            <a href="http://127.0.0.1:8000/">Все</a>
+            {% for category in categories %}
+                <a href="{{ category.get_absolute_url }}" class="product-category">{{ category.name }}</a>
+            {% endfor %}
+        </div>
+    </div>
     <center><div id="main" class="product-list" style="margin-left: auto; margin-right: auto; z-index: -10000;">  
-        {% for product in products %}
+        <div class="product-grid">
+            {% for product in products %}
             <div class="item">
-                <a href="{{ product.get_absolute_url }}">
-                    <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+
+                {% if product.available == True %}
+                <a href="{{ product.get_absolute_url }}" class="product-link">
+                    <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" 
+                        alt="{{ product.name }}" 
+                        class="product-image"
+                        width="70%" height="70%">
                 </a>
-                <br>
-                <center><div class="titillium-web-bold" style=" font-size: 30px;" href="{{ product.get_absolute_url }}">{{ product.name }}</div></center>
-                <center><div class="titillium-web-regular" style=" font-size: 30px;">{{ product.price }} ₽</div></center>
+                <div class="product-details text-center">
+                    <a href="http://127.0.0.1:8000/{{ product.get_absolute_url }}" class="product-title">
+                        {{ product.name }}
+                    </a>
+                    <div class="product-price">
+                        {{ product.price }} ₽
+                    </div>
+                </div>
+                {% else %}
+                <div class="image-container">
+                    <a class="product-link">
+                        <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" 
+                        alt="{{ product.name }}" 
+                        class="product-image"
+                        width="70%" height="70%">
+                        <div class="sold-out-tag">Распроданный</div>
+                    </a>
+                    <div class="product-details text-center">
+                        <a class="product-title">
+                            {{ product.name }}
+                        </a>
+                        <div class="product-price">
+                            {{ product.price }} ₽
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
             </div>
-            <br>
         {% endfor %}
+        </div>
     </div></center>
 {% endblock %}

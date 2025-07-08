@@ -457,24 +457,22 @@ form{
     position: relative;
     top: 200px;
     z-index: -10000;
-    left: 45%;
+    width: 100%;
 }
 
 .order-form {
-    position: absolute;
-    z-index: -10000;
-    top: 570px;
-    left: 45.5%; 
+    padding: 20px;
+    z-index: -10000; 
     font: "Titillium Web", sans-serif;
     font-weight: 400;
+    align-items: center;
     font-style: normal;
 }
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Адаптивная сетка */
-    
-    padding: 20px;
+    grid-template-columns: repeat(2, minmax(280px, 1fr)); /* Адаптивная сетка */
+
     /* z-index: -1000000; */
 }
 
@@ -1006,3 +1004,190 @@ menu-toggle {
     }
 }
 
+
+/* Общий контейнер */
+.checkout-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрирует по горизонтали */
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* Карточка заказа */
+.order-summary {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    margin: auto auto;
+    box-align: center;
+}
+
+.order-summary h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.order-items {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.total-price {
+    font-size: 20px;
+    color: #2c3e50;
+}
+
+/* Форма */
+.form-section {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    text-align: center;
+}
+
+.form-section h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 80%;
+    max-width: 600px; /* Ограничиваем ширину */
+    margin: 0 0; /* Центрируем блок */
+    place-items: center;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+    margin: 0 auto;
+    position: relative;
+    place-items: center;
+}
+
+.form-field label {
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #333;
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    border-color: #afddd0;
+    outline: none;
+}
+
+.error-message {
+    color: #d9534f;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+/* Кнопка отправки */
+.btn-submit {
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    color: #000000;
+    font-size: 25px;
+    font-weight: 400;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Titillium Web", sans-serif;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.btn-submit:hover {
+    background-color: #f0f0f0;
+    border-color: #333333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .checkout-container {
+        margin: 40px 20px;
+    }
+
+    .form-field input,
+    .form-field textarea {
+        font-size: 14px;
+    }
+
+    .btn-submit {
+        width: 100%;
+        padding: 12px 0;
+    }
+}
+
+
+/* Центрирование содержимого формы */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 600px; /* Ограничиваем ширину */
+    margin: 0 auto; /* Центрируем блок */
+    text-align: center; /* Центрируем текст внутри */
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем элементы по горизонтали */
+    width: 100%; /* Заполняем всю ширину */
+    text-align: center; /* Центрируем текст */
+}
+
+/* Стили для полей ввода */
+.form-field input,
+.form-field textarea {
+    width: 100%; /* Растягиваем на всю ширину */
+    max-width: 400px; /* Ограничиваем максимальную ширину */
+    margin-top: 8px; /* Отступ между лейблом и полем */
+}
+
+/* Стили для ошибок */
+.error-message {
+    color: #d9534f;
+    font-size: 14px;
+    margin-top: 4px;
+    text-align: center; /* Центрируем текст ошибки */
+}

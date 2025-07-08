@@ -3,7 +3,6 @@
 {% block title %}Checkout{% endblock %}
 
 {% block content %}
-    <h1>Checkout</h1>
     <div class="order-info">
         <h1 class="titillium-web-black">Ваш заказ</h1>
         <ul>
@@ -17,11 +16,9 @@
         <p class="titillium-web-black">В сумме: {{ cart.get_total_price }}₽</p> 
         <h1 class="titillium-web-black" >Введите данные:</h1>
     </div>
-    <div>
-        <form action="." method="post" class="order-form">
-            {{ form.as_p }}
-            <button type="submit" class="btn-new"><a>ЗАКАЗАТЬ</a></button>
-            {% csrf_token %}
-        </form>
-    </div>
+    <form action="." method="post" class="order-form">
+        {{ form.as_p }}
+        <button type="submit" class="btn-new"><a>ЗАКАЗАТЬ</a></button>
+        {% csrf_token %}
+    </form>
 {% endblock %}

@@ -39,6 +39,9 @@
     animation-delay: .5s;
 }
  
+@media screen {
+   .telegram-button 
+}
 @keyframes animate
 {
     0%
@@ -58,12 +61,12 @@
 }
 
 .navbar {
-    overflow: hidden;
-    background-color: #afddd0;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 1000; /* Гарантирует, что меню будет поверх контента */
+    background-color: #afddd0;
 }
 
 .container {
@@ -451,10 +454,10 @@ form{
     }
 
 .order-info {
-    position: absolute;
-    top: 300px;
-    left: 48%;
+    position: relative;
+    top: 200px;
     z-index: -10000;
+    left: 45%;
 }
 
 .order-form {
@@ -472,15 +475,15 @@ form{
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Адаптивная сетка */
     
     padding: 20px;
-    z-index: -1000000;
+    /* z-index: -1000000; */
 }
+
 
 .item {
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.3s ease;
-    z-index: -1000000;
 }
 
 .product-image {
@@ -505,6 +508,7 @@ form{
     font-size: 25px;
     text-decoration: none; 
     color: black;
+    padding-bottom: 10px;
 }
 
 .product-price {
@@ -522,6 +526,7 @@ form{
     display: flex;
     justify-content: center; /* Горизонтальное центрирование */
     padding: 20px;
+    z-index: -1000000;
 }
 
 .category-links {
@@ -665,18 +670,21 @@ menu-toggle {
   text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }
 
+/* Контейнер изображения */
 .image-container {
-    position: relative;
+    position: relative; /* Включает контекст позиционирования */
     display: inline-block;
     width: 100%;
     height: 100%;
 }
 
+/* Метка "Распроданный" */
 .sold-out-tag {
     position: absolute;
-    top: 81%;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 58px; /* Расположение снизу */
+    left: 160px;
+    right: 160px;
+    margin: auto;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
     padding: 8px 16px;
@@ -684,19 +692,22 @@ menu-toggle {
     font-family: 'Tilda Sans', sans-serif;
     font-size: 14px;
     font-weight: 600;
-    z-index: 10;
+    z-index: 1; /* Гарантирует отображение поверх изображения */
     box-shadow: 0 2px 4px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
+    max-width: 80%; /* Ограничиваем ширину текста */
+    text-align: center;
 }
 
-/* Адаптивные стили */
-@media (max-width: 1024px) {
+/* Адаптивность для маленьких экранов */
+@media (max-width: 768px) {
     .sold-out-tag {
-        font-size: 14px;
-        padding: 8px 16px;
-        top: 78%;
+        font-size: 12px;
+        padding: 6px 12px;
+        bottom: 5px;
     }
 }
+
 /* 
 @media (max-width: 768px) {
     .sold-out-tag {
@@ -715,3 +726,283 @@ menu-toggle {
         left: 46%;
     }
 } */
+
+/* Общий контейнер для корзины */
+.cart-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow-x: auto;
+    padding-bottom: 60px; /* Уже добавлено */
+}
+/* Стили таблицы */
+.cart {
+    padding-top: 0pxs;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #000;
+    left: 0px;
+        margin-bottom: 60px; /* Увеличенный отступ */
+
+}
+
+/* Заголовки таблицы */
+.cart th,
+.cart td {
+    border: 1px solid #000;
+    padding: 12px 20px;
+    text-align: center;
+}
+
+/* Акцент на заголовках */
+.cart th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+/* Итоговая строка */
+.cart .total {
+    font-weight: bold;
+    background-color: #e9f5eb;
+    border-top: 2px solid #000;
+}
+
+/* Изображение товара */
+.cart img {
+    max-width: 70%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+
+/* Кнопка оформления */
+.checkout-button {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Стили для кнопки оформления */
+.checkout-button {
+    text-align: center;
+    margin-top: 30px; /* Расстояние от таблицы до кнопки */
+}
+
+/* Стили для кнопки оформления */
+.checkout-button {
+    text-align: center;
+    margin-top: 30px;
+    position: relative;
+    /* z-index: 1; */
+}
+
+.btn-new {
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    color: #000000;
+    padding: 16px 32px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: inline-block;
+    text-decoration: none;
+    position: relative; /* Относительное позиционирование */
+    top: 700px;
+}
+
+.btn-new:hover {
+    background-color: #f0f0f0;
+    border-color: #333333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .btn-new {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+
+    .checkout-button {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-new {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 14px;
+    }
+}
+
+.cart-title {
+    font-family: 'Tilda Sans', sans-serif; /* Шрифт */
+    font-weight: 700; /* Жирный шрифт */
+    font-size: 32px; /* Размер шрифта */
+    color: #000; /* Цвет текста */
+    margin-top: 210px; /* Отступ сверху */
+    margin-bottom: 80px;
+    text-align: center;
+    
+}
+
+.btn-new:hover {
+    background-color: #f0f0f0;
+    border-color: #333333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (orientation: vertiacal) {}
+    .cart th,
+    .cart td {
+        font-size: 20px;
+        padding: 8px 10px;
+    }
+
+    .cart img {
+        width: 80%;
+        height: 80%;
+    }
+
+    .checkout-button .btn-new {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+
+/* Добавьте отступ к контейнеру */
+.btn-cart {
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    color: #000000;
+    padding: 16px 32px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: inline-block;
+}
+
+.btn-cart:hover {
+    background-color: #f0f0f0;
+    border-color: #333333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .checkout-form {
+        margin-top: 30px;
+    }
+
+    .btn-cart {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-cart {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 14px;
+    }
+}
+
+/* Контейнер для страницы успешного заказа */
+.order-success-container {
+    text-align: center;
+    max-width: 600px;
+    margin: 80px auto 40px;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+/* Иконка успеха */
+.success-icon {
+    font-size: 60px;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+/* Заголовок */
+.titillium-web-semibold {
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Текст */
+.titillium-web-regular {
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Кнопка возврата */
+.back-homepage {
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    color: #000000;
+    font-size: 25px;
+    font-weight: 400;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Titillium Web", sans-serif;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    width: 60%;
+    height: auto;
+    top: 25px;
+}
+
+.back-homepage:hover {
+    background-color: #f0f0f0;
+    border-color: #333333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    .order-success-container {
+        margin: 40px 20px;
+    }
+
+    .success-icon {
+        font-size: 40px;
+    }
+
+    .titillium-web-semibold {
+        font-size: 28px;
+    }
+
+    .titillium-web-regular {
+        font-size: 16px;
+    }
+
+    .btn-new {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 16px;
+    }
+}
+

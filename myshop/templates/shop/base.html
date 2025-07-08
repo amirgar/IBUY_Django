@@ -65,32 +65,26 @@
 <body>
     <nav>
        <input type="checkbox" id="side-checkbox" />
-            <div class="side-panel">
-                <label class="side-button-2" for="side-checkbox">+</label>
-                <a class="white_txt" style='position: absolute; top: 40%; left: 10%; font-family: "Titillium Web", sans-serif; font-weight: 900; font-size: 40px; text-decoration: none;' href="http://127.0.0.1:8000">Домой</a>
-                <a class="white_txt" style='position: absolute; top: 50.5%; left: 10%; font-family: "Titillium Web", sans-serif; font-weight: 900; font-size: 40px; text-decoration: none;' href="http://127.0.0.1:8000/cart">Корзина</a>
-                <a class="white_txt" style='position: absolute; top: 61%; left: 10%; font-family: "Titillium Web", sans-serif; font-weight: 900; font-size: 40px; text-decoration: none;' href="http://127.0.0.1:8000/about_us">О нас</a>
-                <a href="https://t.me/IBUYrussia" target="_blank" title="Написать в Telegram" rel="noopener noreferrer"><div class="telegram-button"><i class="fa fa-telegram"></i></div></a>
-            </div>
 
         <div class="navbar">
           
             {% with total_items=cart|length %}
                 <a href="{% url 'cart:cart_detail' %}">
-                    <img src="{% static 'img/basket.svg' %}" class="basket" height="50px" width="100px" style="position: absolute; top: 32%; left: 7.5%;" />
+                    <img src="{% static 'img/basket.svg' %}" class="basket" height="50px" width="100px" style="position: absolute; top: 32%; left: 7%;" />
                 </a>
-                <a href="#" style="font-family: 'Tilda Sans', sans-serif; position: absolute; top: 37%; left: 18%; color: black; font-size: 25px; text-decoration: none;">Инфо</a>
-                <a href="http://127.0.0.1:8000/" style="font-family: 'Tilda Sans', sans-serif; position: absolute; top: 37%; left: 28%; color: black; font-size: 25px; text-decoration: none;">Каталог </a>
+                <a href="http://127.0.0.1:8000/about_us/" style="font-family: 'Tilda Sans', sans-serif; position: absolute; top: 39%; left: 18%; color: black; font-size: 25px; text-decoration: none;">Инфо</a>
+                <a href="http://127.0.0.1:8000/" style="font-family: 'Tilda Sans', sans-serif; position: absolute; top: 39%; left: 28%; color: black; font-size: 25px; text-decoration: none;">Каталог </a>
+                 <a href="https://t.me/IBUYrussia" target="_blank" title="Написать в Telegram" rel="noopener noreferrer"><div class="telegram-button"><i class="fa fa-telegram"></i></div></a>
             {% endwith %}
             <center> 
                 <img src="{% static 'img/logo.png' %}" width="170" height="170">
             </center> 
-            <!-- <div class="search-box">
+            <div class="search-box">
                     <input type="text" name="" class="search-txt" placeholder="Найти товар"/>
                     <a class="search-btn" href="#">
                     <i class="fa fa-search" aria-hidden="true"></i>
                     </a>
-                </div> -->
+                </div>
         </div>
     </nav>
     <div>

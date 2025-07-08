@@ -23,16 +23,18 @@
     <br>
     <br>
     <br>
+    
+    <br>
     <br>
     <div class="centered-category-block" style="z-index: -1000;">
         <div class="category-links">
             <a href="http://127.0.0.1:8000/">Все</a>
             {% for category in categories %}
-                <a href="{{ category.get_absolute_url }}" class="product-category">{{ category.name }}</a>
+                <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
             {% endfor %}
         </div>
     </div>
-    <center><div id="main" class="product-list" style="margin-left: auto; margin-right: auto; z-index: -10000;">  
+    <center><div id="main" class="product-list" style="margin-left: auto; margin-right: auto;">
         <div class="product-grid">
             {% for product in products %}
             <div class="item">
@@ -44,7 +46,8 @@
                         class="product-image"
                         width="70%" height="70%">
                 </a>
-                <div class="product-details text-center">
+                <div class="text-center">
+                
                     <a href="http://127.0.0.1:8000/{{ product.get_absolute_url }}" class="product-title">
                         {{ product.name }}
                     </a>
@@ -54,20 +57,16 @@
                 </div>
                 {% else %}
                 <div class="image-container">
-                    <a class="product-link">
+                    <a>
                         <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" 
-                        alt="{{ product.name }}" 
-                        class="product-image"
-                        width="70%" height="70%">
+                            alt="{{ product.name }}" 
+                            class="product-image"
+                            width="70%" height="70%">
                         <div class="sold-out-tag">Распроданный</div>
                     </a>
                     <div class="product-details text-center">
-                        <a class="product-title">
-                            {{ product.name }}
-                        </a>
-                        <div class="product-price">
-                            {{ product.price }} ₽
-                        </div>
+                        <a class="product-title">{{ product.name }}</a>
+                        <div class="product-price">{{ product.price }} ₽</div>
                     </div>
                 </div>
                 {% endif %}

@@ -5,6 +5,7 @@ meta:
     version: 3.11
 build:
   requirementsPath: requirements/prod.txt
+
 run:
    command: cd myshop && gunicorn -b https://ibuy-django-garam.amvera.io/ myshop.wsgi:application
    containerPort: 5000  

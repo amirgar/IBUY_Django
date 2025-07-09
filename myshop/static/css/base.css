@@ -60,14 +60,6 @@
     }
 }
 
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000; /* Гарантирует, что меню будет поверх контента */
-    background-color: #afddd0;
-}
 
 .container {
     display: inline-block;
@@ -108,33 +100,35 @@
 }
 
 .search-box {
-    border: black;
-    border-width: 100px;
-    transform: translate(-50%, -50%);
     background: #F5F5F5;
     height: 40px;
     border-radius: 40px;
     padding: 10px;
     position: absolute;
     top: 50%;
-    left: 87%;
+    left: 50%; /* Центрируем по горизонтали */
+    transform: translateX(-50%); /* Сдвигаем на половину ширины */
+    width: 300px; /* Увеличенная ширина */
+    display: flex; /* Используем Flexbox */
+    align-items: center;
+    border: none; /* Убраны лишние границы */
 }
 
-.search-box:hover>.search-txt {
-    width: 100%;
-    padding: 0 6px;
-}
-
-.search-box:hover>.search-btn {
-    background: white;
+/* Поле ввода */
+.search-txt {
+    flex: 1; /* Занимает всю доступную ширину */
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0 10px;
     color: black;
+    font-size: 16px;
+    transition: 0.3s;
+    font-weight: bold;
 }
 
+/* Кнопка поиска */
 .search-btn {
-    border: black;
-    border-width: 100px;
-    color: #eeeeee;
-    float: right;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -145,29 +139,15 @@
     transition: 0.3s;
     color: white;
     cursor: pointer;
-    text-decoration: none;
 }
 
-.search-btn>i {
+.search-btn:hover {
+    background: #333;
+}
+
+.search-btn i {
     font-size: 20px;
 }
-
-.search-txt {
-    border: black;
-    border-width: 100px;
-    border: none;
-    background: none;
-    outline: none;
-    float: left;
-    padding: 0;
-    color: black;
-    font-size: 16px;
-    transition: 0.1s;
-    line-height: 40px;
-    width: 0px;
-    font-weight: bold;
-}
-
 /*Side checkbox*/
 #side-checkbox {
     z-index: 1;
@@ -1114,80 +1094,4 @@ menu-toggle {
     color: #d9534f;
     font-size: 14px;
     margin-top: 4px;
-}
-
-/* Кнопка отправки */
-.btn-submit {
-    background-color: #ffffff;
-    border: 2px solid #000000;
-    color: #000000;
-    font-size: 25px;
-    font-weight: 400;
-    border-radius: 8px;
-    cursor: pointer;
-    font-family: "Titillium Web", sans-serif;
-    transition: all 0.3s ease;
-    display: inline-block;
-    text-decoration: none;
-    margin-top: 20px;
-}
-
-.btn-submit:hover {
-    background-color: #f0f0f0;
-    border-color: #333333;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-    .checkout-container {
-        margin: 40px 20px;
-    }
-
-    .form-field input,
-    .form-field textarea {
-        font-size: 14px;
-    }
-
-    .btn-submit {
-        width: 100%;
-        padding: 12px 0;
-    }
-}
-
-
-/* Центрирование содержимого формы */
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    max-width: 600px; /* Ограничиваем ширину */
-    margin: 0 auto; /* Центрируем блок */
-    text-align: center; /* Центрируем текст внутри */
-}
-
-.form-field {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Центрируем элементы по горизонтали */
-    width: 100%; /* Заполняем всю ширину */
-    text-align: center; /* Центрируем текст */
-}
-
-/* Стили для полей ввода */
-.form-field input,
-.form-field textarea {
-    width: 100%; /* Растягиваем на всю ширину */
-    max-width: 400px; /* Ограничиваем максимальную ширину */
-    margin-top: 8px; /* Отступ между лейблом и полем */
-}
-
-/* Стили для ошибок */
-.error-message {
-    color: #d9534f;
-    font-size: 14px;
-    margin-top: 4px;
-    text-align: center; /* Центрируем текст ошибки */
 }

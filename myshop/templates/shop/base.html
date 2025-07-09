@@ -40,21 +40,18 @@
             <center> 
                 <img src="{% static 'img/logo.png' %}" width="170" height="170">
             </center> 
-            <div class="search-box">
-              <form id="search" action="{% url 'shop:search_results' %}" method="get">
-                <!-- Problem in class search-txt -->
-                <input name="q" type="text" class="search-txt" placeholder="Search..."> 
-                <a class="search-btn" onclick="submitForm()"></a>
-                <i class="fa fa-search" aria-hidden="true"></i>
-              </form>
-            </div>
-            <!-- <div class="search-box">
-                <form id="search" action="{% url 'shop:search_results' %}" method="get"></form>
-                    <input name="q" type="text" class="search-txt" placeholder="Найти товар"/>
-                    <a class="search-btn" onclick="submitForm()"></a>
+              <!-- <form id="search" action="{% url 'shop:search_results' %}" method="get">
+                <input name="q" type="text" placeholder="Search..."> 
+                <i aria-hidden="true"></i>
+              </form>-->
+              <form id="search" method="get" action="{% url 'shop:search_results' %}">
+                <div class="search-box">
+                    <input type="text" name="q" class="search-txt" placeholder="Найти товар"/>
+                    <a class="search-btn" onclick=submitForm()>
                     <i class="fa fa-search" aria-hidden="true"></i>
+                    </a>
+                </div>
                 </form>
-            </div> -->
         </div>
     </nav>
     <div>

@@ -32,12 +32,13 @@ def product_list(request, category_slug=None):
 def search(request): 
     query = request.GET.get('q')
     object_list = Product.objects.filter(
-        Q(name=query)
+        Q(name__icontains=query) | Q(description__icontains=query) | Q(name=query)
     )
     return render(request,
                 'shop/search_results.html',
                 {
-                    'object_list': object_list,
+                    'products': object_list,
+                    'counter': len(object_list)
                 })
 
 

@@ -12,7 +12,12 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = bool(os.environ.get('DEBUG', False))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "http://844e2349da93.hosting.myjino.ru/",
+    '127.0.0.1',
+    'localhost',
+    "https://ibuy-garam.amvera.io/",
+]
 
 
 INSTALLED_APPS = [

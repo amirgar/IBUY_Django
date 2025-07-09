@@ -33,8 +33,8 @@
                 <a href="{% url 'cart:cart_detail' %}">
                     <img src="{% static 'img/basket.svg' %}" class="basket" height="50px" width="100px" style="position: absolute; top: 32%; left: 7%;" />
                 </a>
-                <a href="http://127.0.0.1:8000/about_us/" style="font-family: 'Tilda Sans', sans-serif; position: absolute; top: 39%; left: 18%; color: black; font-size: 25px; text-decoration: none;">Инфо</a>
-                <a href="http://127.0.0.1:8000/" style="font-family: 'Tilda Sans', sans-serif; position: absolute; top: 39%; left: 28%; color: black; font-size: 25px; text-decoration: none;">Каталог </a>
+                <a href="{% url 'about_us:about' %}" style="font-family: 'Tilda Sans', sans-serif; position: absolute; top: 39%; left: 18%; color: black; font-size: 25px; text-decoration: none;">Инфо</a>
+                <a href="{% url 'shop:product_list' %}" style="font-family: 'Tilda Sans', sans-serif; position: absolute; top: 39%; left: 28%; color: black; font-size: 25px; text-decoration: none;">Каталог </a>
                  <a href="https://t.me/IBUYrussia" target="_blank" title="Написать в Telegram" rel="noopener noreferrer"><div class="telegram-button"><i class="fa fa-telegram"></i></div></a>
             {% endwith %}
             <center> 

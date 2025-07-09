@@ -16,7 +16,11 @@ ALLOWED_HOSTS = [
     "http://844e2349da93.hosting.myjino.ru/",
     '127.0.0.1',
     'localhost',
-    "https://ibuy-garam.amvera.io/",
+    "ibuy-django-garam.amvera.io",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "ibuy-django-garam.amvera.io",
 ]
 
 

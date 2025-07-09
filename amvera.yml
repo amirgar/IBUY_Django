@@ -2,10 +2,9 @@ meta:
   environment: python
   toolchain:
     name: pip
-    version: 3.9
-    build:
-    requirementsPath: requirements.txt
-
+    version: 3.11
+build:
+  requirementsPath: requirements/prod.txt
 run:
-   command: gunicorn -b 127.0.0.1:8080 myshop.wsgi:application
+   command: cd myshop && gunicorn -b 127.0.0.1:8080 myshop.wsgi:application
    containerPort: 5000  

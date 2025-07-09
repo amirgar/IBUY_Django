@@ -6,5 +6,5 @@ meta:
 build:
   requirementsPath: requirements/prod.txt
 run:
-   command: cd myshop && gunicorn -b 127.0.0.1:8080 myshop.wsgi:application
+   command: cd myshop && gunicorn -b https://ibuy-django-garam.amvera.io/ myshop.wsgi:application
    containerPort: 5000  

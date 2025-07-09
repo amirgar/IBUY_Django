@@ -25,8 +25,6 @@
 </head>
 <body>
     <nav>
-       <input type="checkbox" id="side-checkbox" />
-
         <div class="navbar">
           
             {% with total_items=cart|length %}
@@ -45,7 +43,7 @@
                 <i aria-hidden="true"></i>
               </form>-->
               <form id="search" method="get" action="{% url 'shop:search_results' %}">
-                <div class="search-box">
+                <div class="search-box" style="position: absolute; left: 78.5%; top: 30%;">
                     <input type="text" name="q" class="search-txt" placeholder="Найти товар"/>
                     <a class="search-btn" onclick=submitForm()>
                     <i class="fa fa-search" aria-hidden="true"></i>
@@ -55,6 +53,7 @@
         </div>
     </nav>
     <div>
+        <br>
         {% block content %}
         {% endblock %}
     </div>

@@ -145,6 +145,16 @@
     background: #333;
 }
 
+.navbar {
+    overflow: hidden;
+    background-color: #afddd0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100000;
+    width: 100%;
+}
+
 .search-btn i {
     font-size: 20px;
 }

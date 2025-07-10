@@ -13,14 +13,12 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = bool(os.environ.get('DEBUG', False))
 
 ALLOWED_HOSTS = [
-    "http://844e2349da93.hosting.myjino.ru/",
-    '127.0.0.1',
-    'localhost',
-    "ibuy-django-garam.amvera.io",
+    "127.0.0.1",
+    'ibuy-django-garam.amvera.io',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "ibuy-django-garam.amvera.io",
+    "https://ibuy-django-garam.amvera.io",
 ]
 
 
@@ -45,6 +43,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'myshop.urls'
@@ -101,6 +100,7 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 

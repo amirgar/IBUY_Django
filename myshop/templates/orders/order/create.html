@@ -24,6 +24,7 @@
         <section class="form-section">
             <h2 class="titillium-web-bold">Введите данные</h2>
             <form action="." method="post" class="order-form">
+                <center>
                 {% csrf_token %}
                 <div class="form-group">
                     {% for field in form %}
@@ -36,6 +37,7 @@
                         </div>
                     {% endfor %}
                 </div>
+                </center>
                 <button type="submit" class="btn-submit" style="font-size: 20px;">ЗАКАЗАТЬ</button>
             </form>
         </section>

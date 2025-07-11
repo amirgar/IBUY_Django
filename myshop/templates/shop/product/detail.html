@@ -43,13 +43,13 @@
         {% block content %}
             <div>
                 <div style="position: absolute; left: 65%; top: 405px; z-index: -100;">
-                    <div style="font-size: 40px; font-family: 'Tilda Sans', sans-serif;">{{ product.name }}</div>
-                    <div style="text-decoration: none; font-style: bold; font-size: 30px; font-family: 'Tilda Sans', sans-serif;"><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></div>
-                    <p class="titillium-web-black" style="text-decoration: none; font-style: bold; font-size: 30px; font-family: 'Tilda Sans', sans-serif;">{{ product.price }} ₽</p>
+                    <div style="font-size: 40px; font-family: 'Tilda', sans-serif;">{{ product.name }}</div>
+                    <div style="text-decoration: none; font-style: bold; font-size: 30px; font-family: 'Tilda', sans-serif;"><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></div>
+                    <p style="text-decoration: none; font-style: bold; font-size: 30px; font-family: 'Tilda', sans-serif;">{{ product.price }} ₽</p>
                     <form action="{% url "cart:cart_add" product.id %}" method="post">
                         <!-- {{ cart_product_form }} -->
                         {% csrf_token %}
-                        <button type="submit" class="btn-add-to-cart">В корзину</button>
+                        <button style="font-family: tilda;" type="submit" class="btn-add-to-cart">В корзину</button>
                     </form>
                 </div>
                 <img width="500"
@@ -60,13 +60,12 @@
             <div style="
     text-decoration: none; 
     font-size: 30px; 
-    font-family: 'Tilda Sans', sans-serif; 
+    font-family: 'Tilda', sans-serif; 
     position: absolute; 
     top: 950px; 
-    left: 50%; 
+    padding-left: 100%; 
     transform: translateX(-50%); 
-    width: 80%; 
-    text-align: center;"> {{ product.description|linebreaks }}</div>
+    width: 80%;"> {{ product.description|linebreaks }}</div>
         {% endblock %}
     </div>
 </body>

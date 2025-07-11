@@ -44,11 +44,10 @@
                     <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" 
                         alt="{{ product.name }}" 
                         class="product-image"
-                        width="70%" height="70%">
+                        width="70%" height="70%" style="max-width: 500px; max-height: 700px;">
                 </a>
                 <div class="text-center">
-                
-                    <a href="{% url 'shop:product_list' %}/{{ product.get_absolute_url }}" class="product-title">
+                    <a href="{{ product.get_absolute_url }}" style="padding-top: 50%;" class="product-title">
                         {{ product.name }}
                     </a>
                     <div class="product-price">
@@ -61,7 +60,7 @@
                         <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" 
                             alt="{{ product.name }}" 
                             class="product-image"
-                            width="70%" height="70%">
+                            width="70%" height="70%" style="max-width: 500px; max-height: 700px;">
                         <div class="sold-out-tag">Распроданный</div>
                     </a>
                     <div class="product-details text-center">

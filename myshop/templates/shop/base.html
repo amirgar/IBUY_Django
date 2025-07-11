@@ -31,12 +31,14 @@
                 <a href="{% url 'cart:cart_detail' %}">
                     <img src="{% static 'img/basket.svg' %}" class="basket" height="50px" width="100px" style="position: absolute; top: 32%; left: 7%;" />
                 </a>
-                <a href="{% url 'about_us:about' %}" style="font-family: 'Tilda Sans', sans-serif; position: absolute; top: 39%; left: 18%; color: black; font-size: 25px; text-decoration: none;">Инфо</a>
-                <a href="{% url 'shop:product_list' %}" style="font-family: 'Tilda Sans', sans-serif; position: absolute; top: 39%; left: 28%; color: black; font-size: 25px; text-decoration: none;">Каталог </a>
+                <a href="{% url 'about_us:about' %}" style="font-family: 'Tilda', sans-serif; position: absolute; top: 39%; left: 18%; color: black; font-size: 25px; text-decoration: none;">Инфо</a>
+                <a href="{% url 'shop:product_list' %}" style="font-family: 'Tilda', sans-serif; position: absolute; top: 39%; left: 28%; color: black; font-size: 25px; text-decoration: none;">Каталог </a>
                  <a href="https://t.me/IBUYrussia" target="_blank" title="Написать в Telegram" rel="noopener noreferrer"><div class="telegram-button"><i class="fa fa-telegram"></i></div></a>
             {% endwith %}
             <center> 
-                <img src="{% static 'img/logo.png' %}" width="170" height="170">
+                <a href="{% url 'shop:product_list' %}">
+                    <img src="{% static 'img/logo.png' %}" width="170" height="170">
+                </a>
             </center> 
               <!-- <form id="search" action="{% url 'shop:search_results' %}" method="get">
                 <input name="q" type="text" placeholder="Search..."> 
@@ -44,7 +46,7 @@
               </form>-->
               <form id="search" method="get" action="{% url 'shop:search_results' %}">
                 <div class="search-box" style="position: absolute; left: 78.5%; top: 30%;">
-                    <input type="text" name="q" class="search-txt" placeholder="Найти товар"/>
+                    <input type="text" name="q" style="font-family: Tilda;" class="search-txt" placeholder="Найти товар"/>
                     <a class="search-btn" onclick=submitForm()>
                     <i class="fa fa-search" aria-hidden="true"></i>
                     </a>

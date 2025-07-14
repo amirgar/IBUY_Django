@@ -29,7 +29,7 @@
           
             {% with total_items=cart|length %}
                 <a href="{% url 'cart:cart_detail' %}">
-                    <img src="{% static 'img/basket.svg' %}" class="basket" height="50px" width="100px" style="position: absolute; top: 32%; left: 7%;" />
+                    <img src="{% static 'img/basket.svg' %}" class="basket" height="50px" width="100px" style="font-family: Tilda; position: absolute; top: 32%; left: 7%;" />
                 </a>
                 <a href="{% url 'about_us:about' %}" style="font-family: 'Tilda', sans-serif; position: absolute; top: 39%; left: 18%; color: black; font-size: 25px; text-decoration: none;">Инфо</a>
                 <a href="{% url 'shop:product_list' %}" style="font-family: 'Tilda', sans-serif; position: absolute; top: 39%; left: 28%; color: black; font-size: 25px; text-decoration: none;">Каталог </a>

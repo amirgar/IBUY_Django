@@ -42,6 +42,7 @@
     <div>
         {% block content %}
             <div>
+                
                 <div style="position: absolute; left: 65%; top: 405px; z-index: -100;">
                     <div style="font-size: 40px; font-family: 'Tilda', sans-serif;">{{ product.name }}</div>
                     <div style="text-decoration: none; font-style: bold; font-size: 30px; font-family: 'Tilda', sans-serif;"><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></div>

@@ -2,11 +2,15 @@
 
 @font-face {
     font-family: 'Tilda';
-    src: url('tildasans-vf-webfont.woff2') format('woff2'),
-         url('tildasans-vf-webfont.woff') format('woff');
+    src: url('TildaSans-VF.ttf') format('truetype'), 
+        url('TildaSansVF.woff2') format('woff2'),
+        url('TildaSansVF.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
+
+
 
 
 .telegram-button {

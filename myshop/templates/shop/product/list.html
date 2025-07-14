@@ -28,7 +28,7 @@
     <br>
     <div class="centered-category-block" style="z-index: -1000;">
         <div class="category-links">
-            <a style="font-family: Tilda;" href="{% url 'shop:product_list' %}">Все</a>
+            <a style="font-family: Tilda;" href="{% url 'shop:product_list' %}">All</a>
             {% for category in categories %}
                 <a style="font-family: Tilda;" href="{{ category.get_absolute_url }}">{{ category.name }}</a>
             {% endfor %}
